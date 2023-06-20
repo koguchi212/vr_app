@@ -21,5 +21,6 @@ def Answer_ChatGPT(question):
     response = completion.choices[0].message['content']
     return response
 
-q = input("質問内容:")
-print(Answer_ChatGPT(q))
+if __name__ == '__main__':
+    q = input("質問内容:")
+    print(Answer_ChatGPT(q))
