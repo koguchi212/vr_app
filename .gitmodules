@@ -1,0 +1,3 @@
+[submodule "vrapp-front"]
+	path = vrapp-front
+	url = https://github.com/koguchi212/vrapp-front.git
