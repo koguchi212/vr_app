@@ -1,0 +1,8 @@
+{
+    "python.autoComplete.extraPaths": [
+        "C:\\Program Files\\Blender Foundation\\Blender 3.5\\3.5\\scripts\\modules"
+    ],
+    "python.analysis.extraPaths": [
+        "C:\\Program Files\\Blender Foundation\\Blender 3.5\\3.5\\scripts\\modules"
+    ]
+}
