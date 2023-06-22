@@ -1,4 +1,5 @@
 import os
+import shutil
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from gradio_client import Client
@@ -25,6 +26,7 @@ def answer_chat_gpt(question):
     response = completion.choices[0].message['content']
     return response
 
+
 @app.route('/', methods=['POST'])
 def index():
     prompt = request.json.get('prompt')  # フロントエンドから受信したデータ
@@ -45,12 +47,19 @@ def index():
     print(result)
 
     glb_file_path = result
-    file_path = os.getenv("FILE_PATH")  # 保存先のディレクトリとファイル名を指定
+    file_path = os.getenv('FILE_PATH') # 移動先のファイルパスとファイル名を指定
 
-    with open(file_path, "w") as f:
-        f.write(glb_file_path)
+    try:
+        shutil.copy(glb_file_path, file_path)
+        print("ファイルの移動が完了しました。")
+    except FileNotFoundError:
+        print("指定したファイルが見つかりません。")
+    except IsADirectoryError:
+        print("指定したパスがディレクトリです。ファイルを指定してください。")
+    except Exception as e:
+        print("エラーが発生しました:", e)
 
-    return jsonify({"glb_file_path": glb_file_path})
+    return jsonify({"response": response})
 
 if __name__ == '__main__':
     app.run()

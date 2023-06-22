@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="jVL9KLdtrLW8NkbS1ek7" name="ページ1">
-        <mxGraphModel dx="954" dy="423" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1301" dy="423" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -335,7 +335,7 @@
         </mxGraphModel>
     </diagram>
     <diagram id="M2toeuCy8qMqOu05G_aE" name="ページ3">
-        <mxGraphModel dx="954" dy="423" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1301" dy="423" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -396,7 +396,7 @@
                 <mxCell id="U63fWnS5q4b76bbsPGMs-13" value="" style="edgeStyle=none;html=1;" parent="1" source="U63fWnS5q4b76bbsPGMs-8" target="U63fWnS5q4b76bbsPGMs-12" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="dq8kfdewmBxz57I7uZtL-2" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="U63fWnS5q4b76bbsPGMs-8" target="dq8kfdewmBxz57I7uZtL-1">
+                <mxCell id="dq8kfdewmBxz57I7uZtL-2" value="" style="edgeStyle=none;html=1;" parent="1" source="U63fWnS5q4b76bbsPGMs-8" target="dq8kfdewmBxz57I7uZtL-1" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="U63fWnS5q4b76bbsPGMs-8" value="音声認識ならUIいらないし、フロントエンドもflaskもいらないのでは" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -408,21 +408,27 @@
                 <mxCell id="U63fWnS5q4b76bbsPGMs-12" value="音声認識もVRに任せるべき？" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="460" y="528" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="dq8kfdewmBxz57I7uZtL-1" value="とりあえずreactでの音声認識と&lt;br&gt;pythonでの音声認識どっちも試す" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="WSwa-flnGd7Rtjm3u9cv-2" value="" style="edgeStyle=none;html=1;" parent="1" source="dq8kfdewmBxz57I7uZtL-1" target="WSwa-flnGd7Rtjm3u9cv-1" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="dq8kfdewmBxz57I7uZtL-1" value="とりあえずreactでの音声認識と&lt;br&gt;pythonでの音声認識どっちも試す" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="260" y="388" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="WSwa-flnGd7Rtjm3u9cv-1" value="blenderで音声認識、chatgpt-api変換するのは難しいのでは？" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="60" y="388" width="120" height="60" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
     </diagram>
     <diagram id="JZyEN8owDHNHYKOebnx5" name="ページ4">
-        <mxGraphModel dx="954" dy="423" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1301" dy="423" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="zKRI6zt-270tKDpFXWkv-1" value="やることリスト" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="zKRI6zt-270tKDpFXWkv-1" value="やることリスト" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="145" y="65" width="110" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="zKRI6zt-270tKDpFXWkv-2" value="Text" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="zKRI6zt-270tKDpFXWkv-2" value="Text" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="145" y="105" width="50" height="30" as="geometry"/>
                 </mxCell>
             </root>
