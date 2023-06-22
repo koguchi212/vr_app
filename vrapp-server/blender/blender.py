@@ -9,14 +9,10 @@ load_dotenv(dotenv_path)
 file_path = os.getenv("FILE_PATH") 
 
 
-# ファイルの変更をチェックする処理を実装
-with open(file_path, 'r') as file:
-    contents = file.read()
-print('File contents:', contents)
-glb_file_path = contents
+
 
 # オブジェクトをインポート
-bpy.ops.import_scene.gltf(filepath=glb_file_path)
+bpy.ops.import_scene.gltf(filepath=file_path)
 
 # インポートされたオブジェクトを選択
 imported_objects = [obj for obj in bpy.context.selected_objects if obj.type == 'MESH']
