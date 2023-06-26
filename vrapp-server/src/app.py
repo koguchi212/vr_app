@@ -1,10 +1,11 @@
 import os
-import shutil
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from gradio_client import Client
 from dotenv import load_dotenv
 import openai
+import sqlite3
+from trans_file import generate_new_glb_file
 
 app = Flask(__name__)
 CORS(app)
@@ -29,37 +30,53 @@ def answer_chat_gpt(question):
 
 @app.route('/', methods=['POST'])
 def index():
+    # データベースに接続
+    database_path = os.path.join('..', 'database.db')
+    conn = sqlite3.connect(database_path)
+    c = conn.cursor()
+
     prompt = request.json.get('prompt')  # フロントエンドから受信したデータ
 
-    # GPTによる回答
-    response = answer_chat_gpt(prompt)
+    # 新しいpromptをDBに保存
+    c.execute("INSERT INTO prompts (prompt) VALUES (?)", (prompt,))
+    conn.commit()
 
-    # Gradio APIを使用して3Dテキスト変換を行う
-    client = Client("https://hysts-shap-e.hf.space/")
-    result = client.predict(
-        response,
-        0,
-        15,
-        64,
-        api_name="/text-to-3d"
-    )
+    response = answer_chat_gpt(prompt)  # promptをChatGPTに通して、回答を取得
+
+    # データベースを検索して該当のpromptが存在するか確認
+    c.execute("SELECT file_path FROM glb_files WHERE prompt=?", (prompt,))
+    result = c.fetchone()
+
+    if result:
+        # promptが存在する場合は、該当のglbファイルパスを取得
+        file_path = result[0]
+
+    
+    else:
+        # Gradio APIを使用して3Dテキスト変換を行う
+        client = Client("https://hysts-shap-e.hf.space/")
+        result = client.predict(
+            response,
+            0,
+            15,
+            64,
+            api_name="/text-to-3d"
+        )
+        
+        print(result)
+
+        # 新たなglbファイルを生成し、ファイルパスを取得
+        file_path = generate_new_glb_file(result)
+
+        # データベースにpromptとglbファイルパスを保存
+        c.execute("INSERT INTO glb_files (prompt, file_path) VALUES (?, ?)", (prompt, file_path))
+        conn.commit()
+
+    # データベース接続を閉じる
+    conn.close()
+
     print(response)  # responseを出力
-    print(result)
-
-    glb_file_path = result
-    file_path = os.getenv('FILE_PATH') # 移動先のファイルパスとファイル名を指定
-
-    try:
-        shutil.copy(glb_file_path, file_path)
-        print("ファイルの移動が完了しました。")
-    except FileNotFoundError:
-        print("指定したファイルが見つかりません。")
-    except IsADirectoryError:
-        print("指定したパスがディレクトリです。ファイルを指定してください。")
-    except Exception as e:
-        print("エラーが発生しました:", e)
 
     return jsonify({"response": response})
-
 if __name__ == '__main__':
     app.run()
