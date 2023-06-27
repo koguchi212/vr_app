@@ -29,4 +29,3 @@
 - ブラウザから音声入力してpromptが返ってきたら、`vrapp-server/blender/blender.py`を開く
 - `Ctrl`+`shift`+`P`で`Blender:start`を選び、blenderのパスを選択する
 - blenderが起動したら、`Ctrl`+`shift`+`P`で`Blender:Run Script`を選択する
-- 着色の操作はblender側で処理する

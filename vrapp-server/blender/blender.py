@@ -37,6 +37,8 @@ if latest_prompt:
         # インポートされたオブジェクトをアクティブにする
         if imported_objects:
             bpy.context.view_layer.objects.active = imported_objects[0]
+            # 頂点ペイントモードに切り替える
+            bpy.ops.object.mode_set(mode='VERTEX_PAINT')
 
         # オブジェクトを選択状態にする
         for obj in imported_objects:
