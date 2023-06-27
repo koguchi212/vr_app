@@ -8,6 +8,16 @@
 - `vrapp-server`下に`.env`を作成する
 - vscodeでblenderのアドオン設定をする
 - `vrapp-front`をクローンする
+
+## ライブラリをインストール
+- pipenvをインストール
+   ```bash
+  pip install pipenv
+  ```  
+- ライブラリのインストール
+   ```bash
+  pipenv install
+  ```    
   
 ## データベース作成
 - `vrapp-server/src`ディレクトリに移動して以下のコマンドを実行
