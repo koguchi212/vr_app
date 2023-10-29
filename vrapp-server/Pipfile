@@ -9,6 +9,10 @@ flask-cors = "*"
 gradio-client = "*"
 openai = "*"
 python-dotenv = "*"
+urllib3 = "*"
+werkzeug = "*"
+aiohttp = "*"
+certifi = "*"
 
 [dev-packages]
 
